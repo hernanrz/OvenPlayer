@@ -733,6 +733,10 @@ const WebRTCLoader = function (provider,
 
                             let rendition = renditions[i];
 
+                            if (!rendition.video_track || !rendition.video_track.video) {
+                                continue;
+                            }
+
                             spec.qualityLevels.push({
                                 bitrate: rendition.video_track.video.bitrate,
                                 height: rendition.video_track.video.height,
